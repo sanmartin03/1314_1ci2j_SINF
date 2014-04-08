@@ -18,7 +18,7 @@ else
   if [ $# != 1 ] ; 
   then
     echo ""
-    echo "bad parameter count"
+    echo "bad parameter count, you must write the origin folder"
     echo "you could write ./bulkonvert.sh -h for help"
     echo ""
     exit 2
@@ -28,19 +28,27 @@ else
       if [ ${cadena1:long-1:1} != "/" ];
       then
 	echo "you don't write a valid path. example: home/videos/"   
-  else
+      exit 3
+      else
+        if ! [ -d $1 ];
+        then
+	  echo "the folder you write not exist"   
+        exit 4
+        else
+
 # Main code
 
-    ls -1 $1*.avi > videofiles
+        ls -1 $1*.avi > videofiles
 
-    while read videofile
-    do
-	lengthname=${#videofile}
-	namefile=${videofile:0:$lengthname-4}
-  	mencoder "$videofile" -o "$namefile".mp4 -oac mp3lame -ovc lavc -lavcopts vcodec=mpeg1video -of mpeg
+         while read videofile
+         do
+	    lengthname=${#videofile}
+	    namefile=${videofile:0:$lengthname-4}
+  	    mencoder "$videofile" -o "$namefile".mp4 -oac mp3lame -ovc lavc -lavcopts vcodec=mpeg1video -of mpeg
 
-    done < videofiles
-    rm videofiles
+         done < videofiles
+         rm videofiles
+      fi
+    fi
   fi
-fi
 fi
