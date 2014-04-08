@@ -22,6 +22,12 @@ else
     echo "you could write ./bulkonvert.sh -h for help"
     echo ""
     exit 2
+    else
+      cadena1=$1
+      long=${#cadena1} 
+      if [ ${cadena1:long-1:1} != "/" ];
+      then
+	echo "you don't write a valid path. example: home/videos/"   
   else
 # Main code
 
@@ -29,14 +35,12 @@ else
 
     while read videofile
     do
-echo $videofile
 	lengthname=${#videofile}
-echo $lengthname
 	namefile=${videofile:0:$lengthname-4}
-echo $namefile
   	mencoder "$videofile" -o "$namefile".mp4 -oac mp3lame -ovc lavc -lavcopts vcodec=mpeg1video -of mpeg
 
     done < videofiles
     rm videofiles
   fi
+fi
 fi
