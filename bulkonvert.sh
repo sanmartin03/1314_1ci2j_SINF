@@ -29,9 +29,12 @@ else
 
     while read videofile
     do
+echo $videofile
 	lengthname=${#videofile}
-	namefile=${videofile;0;$lengthname-4}
-  	mencoder $videofile -o $namefile.mp4 -oac mp3lame -ovc lavc -of mp4
+echo $lengthname
+	namefile=${videofile:0:$lengthname-4}
+echo $namefile
+  	mencoder "$videofile" -o "$namefile".mp4 -oac mp3lame -ovc lavc -lavcopts vcodec=mpeg1video -of mpeg
 
     done < videofiles
     rm videofiles
