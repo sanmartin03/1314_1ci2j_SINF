@@ -2,7 +2,7 @@
 
 # Script to convert all video files from a directory (parameter) into mp4 format file
 
-# Diego Project
+# Diego Project, new brach
 
 # Sanity checks
 # ...
