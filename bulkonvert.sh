@@ -6,11 +6,21 @@
 
 # Sanity checks
 # ...
-if [ ! -x /usr/bin/mencoder  ];
+
+hash mencoder 2> /dev/null
+if  [ $? != 0 ];
 then
   echo "You must being instaled mencoder. Install it and try again."
   echo "run  'sudo apt-get install mencoder' for install it"
-exit 1
+  echo "Do you want to install it now(y/n)?"
+  read var1
+  if [ $var1 = 'y' ];
+  then 
+    sudo apt-get update
+    sudo apt-get install mencoder
+  else 
+    exit 1
+  fi
 fi
 
 
