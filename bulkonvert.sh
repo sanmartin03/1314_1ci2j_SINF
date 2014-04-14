@@ -70,7 +70,26 @@ fi
 
 # Main code
 
-ls -1 $1*.avi > videofiles
+echo "¿do you want to convert avi videos?(y/n)"
+read var1
+if [ $var1 = 'y' ];
+then 
+  ls -1 $1*.avi >> videofiles
+fi
+
+echo "¿do you want to convert mov videos?(y/n)"
+read var1
+if [ $var1 = 'y' ];
+then 
+  ls -1 $1*.mov >> videofiles
+fi
+
+echo "¿do you want to convert mkv videos?(y/n)"
+read var1
+if [ $var1 = 'y' ];
+then 
+  ls -1 $1*.mkv >> videofiles
+fi
 
 while read videofile
 do
