@@ -50,7 +50,7 @@ then
   exit 4
 fi        
 
-if ! [ -d $1 ];
+if  [ ! -d $1 ];
 then
   echo "the folder you write not exist"   
   exit 5
@@ -75,6 +75,7 @@ fi
   ls -1 $1*.mov >> videofiles 2> /dev/null
   ls -1 $1*.mkv >> videofiles 2> /dev/null
   ls -1 $1*.wmv >> videofiles 2> /dev/null
+  ls -1 $1*.mpg >> videofiles 2> /dev/null
   ls -1 $1*.flv >> videofiles 2> /dev/null
 
 
