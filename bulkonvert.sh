@@ -70,42 +70,13 @@ fi
 
 # Main code
 
-> videofiles
-
-echo "¿do you want to convert avi videos?(y/n)"
-read var1
-if [ $var1 = 'y' ];
-then 
+  > videofiles
   ls -1 $1*.avi >> videofiles 2> /dev/null
-fi
-
-echo "¿do you want to convert mov videos?(y/n)"
-read var1
-if [ $var1 = 'y' ];
-then 
   ls -1 $1*.mov >> videofiles 2> /dev/null
-fi
-
-echo "¿do you want to convert mkv videos?(y/n)"
-read var1
-if [ $var1 = 'y' ];
-then 
   ls -1 $1*.mkv >> videofiles 2> /dev/null
-fi
-
-echo "¿do you want to convert wmv videos?(y/n)"
-read var1
-if [ $var1 = 'y' ];
-then 
   ls -1 $1*.wmv >> videofiles 2> /dev/null
-fi
-
-echo "¿do you want to convert flv videos?(y/n)"
-read var1
-if [ $var1 = 'y' ];
-then 
   ls -1 $1*.flv >> videofiles 2> /dev/null
-fi
+
 
 while read videofile
 do
@@ -116,14 +87,9 @@ do
 done < videofiles
 rm videofiles
 
-> videofiles
-
-echo "¿do you want to convert mpeg videos?(y/n)"
-read var1
-if [ $var1 = 'y' ];
-then 
+  > videofiles
   ls -1 $1*.mpeg >> videofiles 2> /dev/null
-fi
+
 
 while read videofile
 do
